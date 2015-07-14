@@ -1,5 +1,5 @@
 {
-    "name": "backbone.crossdomain",
+    "name": "backbone.crossdomain.with.promise",
     "version": "0.4.2",
     "main": "Backbone.CrossDomain.js",
     "ignore": ["node_modules"],
