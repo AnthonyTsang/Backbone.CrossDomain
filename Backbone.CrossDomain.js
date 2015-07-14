@@ -205,7 +205,21 @@
             }, 0);
 
             model.trigger('request', model, xdr, options);
-            return xdr;
+            return new Promise(xdr);
+
+            function Promise(xdr) {
+              this.xdr = xdr;
+              var self = this;
+              xdr.onload = function() {
+                (function(){
+                  this.successCallback.apply(this.successCallback, arguments);
+                }).apply(self, arguments);
+              };
+              this.successCallback = function(){};
+              this.success = function(callback) {
+                this.successCallback = callback;
+              }
+            }
         }
         else {
             return Backbone.vanillaSync.apply(this, arguments);
