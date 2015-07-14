@@ -213,7 +213,7 @@
               xdr.onload = function() {
                 (function(){
                   this.successCallback.apply(this.successCallback, arguments);
-                }).apply(self, arguments);
+                }).apply(self, [xdr.responseText]);
               };
               this.successCallback = function(){};
               this.success = function(callback) {
